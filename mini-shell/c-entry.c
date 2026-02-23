@@ -42,7 +42,7 @@ int main() {
                 }
                 fclose(fp);
             } else {
-                printf("No se pudo abrir %s, usando valor por defecto.\n", fname);
+                printf("%s not found.\n", fname);
             }
 
             switch (vemo) {
