@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 char buff[512];
-char fname[] = "vemo.txt";
+char vemo_fname[] = "vemo.txt";
 uint8_t vemo = 0;
 
 FILE *fp;
@@ -35,7 +35,7 @@ int main() {
         } else if (strcmp(buff, "vemo -s") == 0) {
             int state;
 
-            fp = fopen(fname, "r");
+            fp = fopen(vemo_fname, "r");
             if (fp != NULL) {
                 if (fscanf(fp, "%d", &state) == 1) {
                     vemo = (uint8_t)state;
@@ -57,7 +57,7 @@ int main() {
         } else if (strcmp(buff, "vemo -t") == 0) {
             vemo = !vemo;
 
-            fp = fopen(fname, "w");
+            fp = fopen(vemo_fname, "w");
             if (fp != NULL) {
                 fprintf(fp, "%d\n", vemo);
                 fclose(fp);
