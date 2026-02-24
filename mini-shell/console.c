@@ -22,7 +22,7 @@ int main() {
         }
 
         if (vemo == 1) {
-            printf("[Verbose] Processed input: %s\n", buff);
+            printf("[VeMo] Processed input: %s\n", buff);
         }
 
         if (strcmp(buff, "exit") == 0) {
