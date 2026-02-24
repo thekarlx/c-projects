@@ -22,7 +22,7 @@ int main() {
         }
 
         if (vemo == 1) {
-            printf("[Verbose] Entrada procesada: %s\n", buff);
+            printf("[Verbose] Processed input: %s\n", buff);
         }
 
         if (strcmp(buff, "exit") == 0) {
@@ -42,7 +42,7 @@ int main() {
                 }
                 fclose(fp);
             } else {
-                printf("%s not found.\n", fname);
+                printf("%s not found.\n", vemo_fname);
             }
 
             switch (vemo) {
