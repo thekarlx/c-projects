@@ -3,8 +3,12 @@
 #include <ctype.h>
 #include <stdint.h>
 
+#include <windows.h> // As of feb 24th 2026, shell commands are only available for windows
+
+#pragma comment(lib, "Shell32.lib")
+
 char buff[512];
-char vemo_fname[] = "vemo.txt";
+char vemo_fname[] = "vemo"; // No .txt so that Windows 11 Notepad can't get there
 uint8_t vemo = 0;
 
 FILE *fp;
@@ -64,6 +68,18 @@ int main() {
             }
 
             printf("Vemo toggled %s\n", vemo ? "on" : "off");
+        
+            // SHELL COMMANDS (windows only)
+        } else if (strcmp(buff,"notepad") == 0) {
+            ShellExecute(NULL,"open","notepad",NULL,NULL,SW_SHOWNORMAL);
+        } else if (strcmp(buff,"explorer") == 0) {
+            ShellExecute(NULL,"open","explorer",NULL,NULL,SW_SHOWNORMAL);
+        } else if (strcmp(buff,"regedit") == 0) {
+            ShellExecute(NULL,"open","regedit",NULL,NULL,SW_SHOWNORMAL);
+        } else if (strcmp(buff,"control") == 0) {
+            ShellExecute(NULL,"open","control",NULL,NULL,SW_SHOWNORMAL);
+        } else if (strcmp(buff,"taskmgr") == 0) {
+            ShellExecute(NULL,"open","taskmgr",NULL,NULL,SW_SHOWNORMAL);
         }
     }
 
